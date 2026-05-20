@@ -38,6 +38,7 @@ public abstract class BaseAnimationController : SerializedMonoBehaviour
             return;
 
         mAnimator.CrossFade(stateName, normalizedTime);
+        TrackAnimationEvents(stateName);
     }
 
     public async void TrackAnimationEvents(string stateName)
@@ -49,26 +50,16 @@ public abstract class BaseAnimationController : SerializedMonoBehaviour
             return;
         }
 
-        var clip = FindAnimation(stateName);
-        if (clip == null)
-        {
-            Debug.LogError($"Not found clip: {stateName}");
-            return;
-        }
-
-        int index = 0;
-        var animData = AnimDatas[stateName];
+        var animData = GetAnimationData(stateName);
         var evtDatas = GetAnimationEventDatas(animData.State);
-        while (true)
+        
+        int index = 0;
+        while (evtDatas.Count > index)
         {
-            if (evtDatas.Count <= index)
-                break;
-
-            var time = info.normalizedTime * clip.length;
             var evtData = evtDatas[index];
-            if (time >= evtData.Time)
+            if (info.normalizedTime >= evtData.Time)
             {
-                
+                AnimationEventHandler(evtData);
                 index++;
             }
 
@@ -91,6 +82,8 @@ public abstract class BaseAnimationController : SerializedMonoBehaviour
 
         AnimEventDatas[eventData.AniState].Add(eventData);
     }
+
+    public AnimationData GetAnimationData(string state) => AnimDatas.GetValueOrDefault(state);
 
     public AnimationClip FindAnimation(string clipName)
     {

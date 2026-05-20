@@ -1,7 +1,6 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public partial class Managers : HYG.Manager.Base.MasterManager
+public class Managers : HYG.Manager.Core.Managers<Managers>
 {
     public static ResourceManager Resource => Instance.mResource;
     public static DataManager Data => Instance.mData;
@@ -12,6 +11,7 @@ public partial class Managers : HYG.Manager.Base.MasterManager
     public static PoolManager Pool => Instance.mPool;
     public static StringManager String => Instance.mString;
     public static SoundManager Sound => Instance.mSound;
+    public static DeviceManager Device => Instance.mDevice;
 
     private ResourceManager mResource;
     private DataManager mData;
@@ -21,9 +21,13 @@ public partial class Managers : HYG.Manager.Base.MasterManager
     private PoolManager mPool;
     private StringManager mString;
     private SoundManager mSound;
+    private DeviceManager mDevice;
 
-    protected override void Init()
+    public void InitManager()
     {
+        if (mInit == true)
+            return;
+
         mResource = new ResourceManager();
         mData = new DataManager();
         mScene = new SceneManagerEx();
@@ -32,6 +36,7 @@ public partial class Managers : HYG.Manager.Base.MasterManager
         mPool = new PoolManager();
         mString = new StringManager();
         mSound = new SoundManager();
+        mDevice = new DeviceManager();
 
         mResource.RegisterMaster(this);
         mData.RegisterMaster(this);
@@ -41,10 +46,12 @@ public partial class Managers : HYG.Manager.Base.MasterManager
         mPool.RegisterMaster(this);
         mString.RegisterMaster(this);
         mSound.RegisterMaster(this);
+        mDevice.RegisterMaster(this);
     }
 
     public override void Clear()
     {
+        mInit = false;
         mResource.UnregisterMaster();
         mData.UnregisterMaster();
         mScene.UnregisterMaster();
@@ -53,6 +60,7 @@ public partial class Managers : HYG.Manager.Base.MasterManager
         mPool.UnregisterMaster();
         mString.UnregisterMaster();
         mSound.UnregisterMaster();
+        mDevice.UnregisterMaster();
         mInstance = null;
         Destroy(gameObject);
     }

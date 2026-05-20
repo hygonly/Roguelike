@@ -4,6 +4,15 @@ using UnityEngine;
 public abstract class ObjectControl : SerializedMonoBehaviour
 {
     protected BaseAnimationController animController;
+    protected Defines.Direction mDir;
 
-    protected abstract void AnimationEventHandler(AnimationEventData eventData);
+    public void MoveToObject(Defines.Direction dir)
+    {
+
+    }
+
+    public void Return()
+    {
+
+    }
 }

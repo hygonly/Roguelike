@@ -64,6 +64,7 @@
     <Compile Include="Assets\Roguelike\Source\Scenes\BaseScene.cs" />
     <Compile Include="Assets\Roguelike\Source\Managers\Managers.Sound.cs" />
     <Compile Include="Assets\Sdk\Managers\Time\TimeManager.cs" />
+    <Compile Include="Assets\Sdk\Managers\Device\DeviceManager.cs" />
     <Compile Include="Assets\Sdk\Utill\ExtendedHelper.cs" />
     <Compile Include="Assets\Sdk\Managers\Core\Managers.JsonData.cs" />
     <Compile Include="Assets\Sdk\Common\Config.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Assets\Sdk\Utill\Defines.Core.cs" />
     <Compile Include="Assets\Sdk\Managers\Base\MasterManager.cs" />
     <Compile Include="Assets\Roguelike\AutoScriptExcelData\user\JsonDataManager.UserSetting.cs" />
+    <Compile Include="Assets\Roguelike\Source\Managers\Managers.Device.cs" />
     <Compile Include="Assets\Roguelike\Source\Managers\Managers.Data.cs" />
     <Compile Include="Assets\Sdk\Managers\User\UserManager.cs" />
     <Compile Include="Assets\Roguelike\Source\Utills\Defines.Common.cs" />

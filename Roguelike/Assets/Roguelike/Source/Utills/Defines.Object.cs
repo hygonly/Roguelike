@@ -12,4 +12,12 @@ public partial class Defines
         Hit,
         Dead,
     }
+
+    public enum Direction
+    {
+        Right,
+        Left,
+        Up,
+        Down,
+    }
 }

@@ -19,16 +19,10 @@ public partial class Defines
         GameScene
     }
 
-    public enum OptionType
+    public enum SystemLanguage
     {
-        Bgm,
-        Sfx,
-        MoveForward,
-        MoveBack,
-        MoveRight,
-        MoveLeft,
-        Action,
-        DialogueSpeed,
-        BattleSpeed,
+        Korean,
+        English,
+        Unknown,
     }
 }

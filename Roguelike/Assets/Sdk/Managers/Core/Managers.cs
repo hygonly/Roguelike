@@ -1,36 +1,49 @@
 using UnityEngine;
 
-public partial class Managers : HYG.Manager.Base.MasterManager
+namespace HYG.Manager.Core
 {
-    public static Managers Instance 
-    { 
-        get 
-        {
-            if (mInstance == null)
-            {
-                mInstance = Create();
-                mInstance.Init();
-                _init = true;
-            }
-
-            return mInstance; 
-        } 
-    }
-
-    private static Managers mInstance;
-
-    private static bool _init;
-
-    private static Managers Create()
+    public abstract class Managers<T> : HYG.Manager.Base.MasterManager where T : Managers, new()
     {
-        GameObject go = GameObject.Find("@Managers");
-        if (go == null)
+        public static T Instance
         {
-            go = new GameObject("@Managers");
-            go.AddComponent<Managers>();
+            get
+            {
+                if (mInstance == null)
+                {
+                    mInstance = Create();
+                    Init();
+                }
+
+                return mInstance;
+            }
         }
 
-        DontDestroyOnLoad(go);
-        return go.GetComponent<Managers>();
+        protected static T mInstance;
+
+        protected static bool mInit;
+
+        protected static T Create()
+        {
+            if (mInstance != null)
+                return mInstance;
+
+            GameObject go = GameObject.Find("@Managers");
+            if (go == null)
+            {
+                go = new GameObject("@Managers");
+                go.AddComponent<T>();
+            }
+
+            DontDestroyOnLoad(go);
+            T newManager = go.GetComponent<T>();
+            return newManager;
+        }
+
+        protected static void Init()
+        {
+            mInstance.InitManager();
+            mInit = true;
+        }
+        public abstract void Clear();
     }
 }

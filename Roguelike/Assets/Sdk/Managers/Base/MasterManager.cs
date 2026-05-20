@@ -13,8 +13,5 @@ namespace HYG.Manager.Base
         public Behaviour GetBehaviour() { return this; }
 
         public GameObject GetObject() { return gameObject; }
-
-        protected abstract void Init();
-        public abstract void Clear();
     }
 }
