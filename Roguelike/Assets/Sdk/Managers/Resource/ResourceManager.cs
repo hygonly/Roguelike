@@ -46,9 +46,9 @@ namespace HYG.Manager.Resource
             return await mPool.LoadAddressable<T>(key);
         }
 
-        public void Release(string key)
+        public void ResourceRelease(string key, int releaseCount = 1)
         {
-            mPool.ReleaseResource(key, 1);
+            mPool.ReleaseResource(key,releaseCount);
         }
     }
 }

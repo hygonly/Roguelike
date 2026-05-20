@@ -51,7 +51,7 @@ namespace HYG.Manager.HScene
         public void UnregisterScene(Defines.SceneType sceneType)
         {
             string loadKey = ZString.Concat(Config.ScenePath, "/", sceneType.ToString(), ".unity");
-            Managers.Resource.Release(loadKey);
+            Managers.Resource.ResourceRelease(loadKey);
         }
     }
 }
