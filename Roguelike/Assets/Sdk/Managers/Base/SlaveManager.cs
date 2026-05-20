@@ -37,7 +37,7 @@ namespace HYG.Manager.Base
             mInit = true;
         }
 
-        protected virtual void Clear()
+        public virtual void Clear()
         {
 
         }

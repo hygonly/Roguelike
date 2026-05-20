@@ -9,6 +9,9 @@ namespace HYG.Manager.Time
 
     public class TimeManager : HYG.Manager.Base.SlaveManager
     {
+        public float DeltaTime { get { return UnityEngine.Time.deltaTime * mGameSpeed; } }
+        private float mGameSpeed;
+        
         private List<Func<bool>> mTenSecondsIntervalActions = new List<Func<bool>>();
         private List<Func<bool>> mOneMinutesIntervalActions = new List<Func<bool>>();
         private List<Func<bool>> mFiveMinutesIntervalActions = new List<Func<bool>>();

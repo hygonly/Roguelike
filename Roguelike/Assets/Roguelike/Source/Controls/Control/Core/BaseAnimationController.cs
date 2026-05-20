@@ -5,25 +5,26 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using static Defines;
 
 [Serializable]
 public class AnimationEventData
 {
-    public Defines.CreatureState AniState;
-    public string EventName;
+    public Defines.ObjectState AniState;
+    public AnimationEventType EventType;
     public float Time;
 }
 
 public class AnimationData
 {
     public string AnimName;
-    public Defines.CreatureState State;
+    public Defines.ObjectState State;
 }
 
 public abstract class BaseAnimationController : SerializedMonoBehaviour
 {
     public Dictionary<string, AnimationData> AnimDatas = new Dictionary<string, AnimationData>();
-    public Dictionary<Defines.CreatureState, List<AnimationEventData>> AnimEventDatas = new Dictionary<Defines.CreatureState, List<AnimationEventData>>();
+    public Dictionary<Defines.ObjectState, List<AnimationEventData>> AnimEventDatas = new Dictionary<Defines.ObjectState, List<AnimationEventData>>();
 
     private Animator mAnimator;
 
@@ -67,7 +68,7 @@ public abstract class BaseAnimationController : SerializedMonoBehaviour
         }
     }
 
-    public List<AnimationEventData> GetAnimationEventDatas(Defines.CreatureState state)
+    public List<AnimationEventData> GetAnimationEventDatas(Defines.ObjectState state)
     {
         if (AnimEventDatas.TryGetValue(state, out var value) == false)
             return new List<AnimationEventData>();

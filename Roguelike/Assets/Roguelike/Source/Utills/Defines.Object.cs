@@ -2,13 +2,12 @@ using UnityEngine;
 
 public partial class Defines
 {
-    public enum CreatureState
+    public enum ObjectState
     {
         None,
         Idle,
         Move,
         Attack,
-        Skill,
         Hit,
         Dead,
     }
@@ -19,5 +18,14 @@ public partial class Defines
         Left,
         Up,
         Down,
+    }
+
+    public enum AnimationEventType
+    {
+        Idle,
+        Move,
+        Attack,
+        Hit,
+        Dead,
     }
 }

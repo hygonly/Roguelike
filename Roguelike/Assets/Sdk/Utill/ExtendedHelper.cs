@@ -8,4 +8,9 @@ public static partial class ExtendedHelper
     {
         return second * MS_PER_SECONDS;
     }
+
+    public static bool IsObjectValid(this Component target)
+    {
+        return target != null && target.gameObject != null;
+    }
 }
