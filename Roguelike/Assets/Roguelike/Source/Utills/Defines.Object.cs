@@ -28,4 +28,12 @@ public partial class Defines
         Hit,
         Dead,
     }
+
+    public enum StatType
+    {
+        None,
+        BaseAttack,
+        BaseDefense,
+        BaseHp,
+    }
 }

@@ -17,6 +17,8 @@ public abstract class UnitControl : ObjectControl
     //장비 선택 처리
     //카메라/인벤토리/UI 이벤트 연결
 
+    
+
     protected UnitAnimationController mAnimControl;
 
     public override void Initialized()

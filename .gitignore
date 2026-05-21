@@ -102,3 +102,14 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+Roguelike/Assembly-CSharp.csproj
+Roguelike/Sirenix.OdinInspector.Modules.Unity.Addressables.csproj
+Roguelike/Sirenix.OdinInspector.Modules.UnityMathematics.csproj
+Roguelike/UniRx.csproj
+Roguelike/UniTask.Addressables.csproj
+Roguelike/UniTask.csproj
+Roguelike/UniTask.DOTween.csproj
+Roguelike/UniTask.Editor.csproj
+Roguelike/UniTask.Linq.csproj
+Roguelike/UniTask.TextMeshPro.csproj
+Roguelike/ZString.csproj
