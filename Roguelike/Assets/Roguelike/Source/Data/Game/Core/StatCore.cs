@@ -2,11 +2,19 @@ using UnityEngine;
 
 public class StatCore
 {
-    protected StatData mBaseStatData = new StatData();
-    protected StatData mBuffData = new StatData();
-    protected StatData mDebuffData = new StatData();
+    protected StatStorageData mStorageData = new StatStorageData();
+    protected StatRuntimeData mRuntimeData = new StatRuntimeData();
 
-    public double SetBuffStat(Defines.StatType statType, double value) => mBuffData.SetStat(statType, value);
+    public double GetCalcStats(Defines.StatType statType)
+    {
+        double baseStat = mStorageData.GetBaseStat(statType);
+        double buffStat = mStorageData.GetBuffStat(statType);
+        double debuffStat = mStorageData.GetDebuffStat(statType);
 
-    
+        double calcStatValue = baseStat + buffStat - debuffStat;
+        mRuntimeData.SetTotalStat(statType, calcStatValue);
+        return calcStatValue;
+    }
+
+
 }
