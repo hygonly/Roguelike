@@ -15,6 +15,4 @@ public class StatCore
         mRuntimeData.SetTotalStat(statType, calcStatValue);
         return calcStatValue;
     }
-
-
 }

@@ -1,30 +1,31 @@
 using Cysharp.Threading.Tasks;
+using HYG.Collections.Generic;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
-using static Defines;
 
 [Serializable]
 public class AnimationEventData
 {
     public Defines.ObjectState AniState;
-    public AnimationEventType EventType;
+    public Defines.AnimationEventType EventType;
     public float Time;
 }
 
+[Serializable]
 public class AnimationData
 {
     public string AnimName;
     public Defines.ObjectState State;
 }
 
+
 public abstract class BaseAnimationController : SerializedMonoBehaviour
 {
-    public Dictionary<string, AnimationData> AnimDatas = new Dictionary<string, AnimationData>();
-    public Dictionary<Defines.ObjectState, List<AnimationEventData>> AnimEventDatas = new Dictionary<Defines.ObjectState, List<AnimationEventData>>();
+    public SerializedDictionary<string, AnimationData> AnimDatas = new SerializedDictionary<string, AnimationData>();
+    public SerializedDictionary<Defines.ObjectState, List<AnimationEventData>> AnimEventDatas = new SerializedDictionary<Defines.ObjectState, List<AnimationEventData>>();
 
     private Animator mAnimator;
 
@@ -42,7 +43,7 @@ public abstract class BaseAnimationController : SerializedMonoBehaviour
         TrackAnimationEvents(stateName);
     }
 
-    public async void TrackAnimationEvents(string stateName)
+    public async void TrackAnimationEvents(string stateName, int maxCount = 100)
     {
         var info = mAnimator.GetCurrentAnimatorStateInfo(0);
         if (info.IsName(stateName) == false)
