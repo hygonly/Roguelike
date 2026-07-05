@@ -34,25 +34,25 @@ public abstract class BaseAnimationController : SerializedMonoBehaviour
         mAnimator = GetComponent<Animator>();
     }
 
-    public void PlayAnimation(string stateName, float normalizedTime = 0.1f)
+    public void PlayAnimation(string _stateName, float _normalizedTime = 0.1f)
     {
-        if (ContainsAnimationClip(stateName) == false)
+        if (ContainsAnimationClip(_stateName) == false)
             return;
 
-        mAnimator.CrossFade(stateName, normalizedTime);
-        TrackAnimationEvents(stateName);
+        mAnimator.CrossFade(_stateName, _normalizedTime);
+        TrackAnimationEvents(_stateName);
     }
 
-    public async void TrackAnimationEvents(string stateName, int maxCount = 100)
+    public async void TrackAnimationEvents(string _stateName, int _maxCount = 100)
     {
         var info = mAnimator.GetCurrentAnimatorStateInfo(0);
-        if (info.IsName(stateName) == false)
+        if (info.IsName(_stateName) == false)
         {
-            Debug.LogError($"Name miss matching: {stateName}");
+            Debug.LogError($"Name miss matching: {_stateName}");
             return;
         }
 
-        var animData = GetAnimationData(stateName);
+        var animData = GetAnimationData(_stateName);
         var evtDatas = GetAnimationEventDatas(animData.State);
         
         int index = 0;
@@ -69,12 +69,12 @@ public abstract class BaseAnimationController : SerializedMonoBehaviour
         }
     }
 
-    public List<AnimationEventData> GetAnimationEventDatas(Defines.ObjectState state)
+    public List<AnimationEventData> GetAnimationEventDatas(Defines.ObjectState _state)
     {
-        if (AnimEventDatas.TryGetValue(state, out var value) == false)
+        if (AnimEventDatas.TryGetValue(_state, out var value) == false)
             return new List<AnimationEventData>();
 
-        return AnimEventDatas[state].OrderBy(_ => _.Time).ToList();
+        return AnimEventDatas[_state].OrderBy(_ => _.Time).ToList();
     }
 
     public void AddAnimationEvent(AnimationEventData eventData)
@@ -85,27 +85,27 @@ public abstract class BaseAnimationController : SerializedMonoBehaviour
         AnimEventDatas[eventData.AniState].Add(eventData);
     }
 
-    public AnimationData GetAnimationData(string state) => AnimDatas.GetValueOrDefault(state);
+    public AnimationData GetAnimationData(string _state) => AnimDatas.GetValueOrDefault(_state);
 
-    public AnimationClip FindAnimation(string clipName)
+    public AnimationClip FindAnimation(string _clipName)
     {
         foreach (var clip in mAnimator.runtimeAnimatorController.animationClips)
         {
-            if (clip.name == clipName)
+            if (clip.name == _clipName)
                 return clip;
         }
 
         return null;
     }
 
-    public bool ContainsAnimationClip(string clipName)
+    public bool ContainsAnimationClip(string _clipName)
     {
-        var findIt = FindAnimation(clipName);
-        if (findIt.name == clipName)
+        var findIt = FindAnimation(_clipName);
+        if (findIt.name == _clipName)
             return true;
 
         return false;
     }
 
-    public abstract void AnimationEventHandler(AnimationEventData evtData);
+    public abstract void AnimationEventHandler(AnimationEventData _evtData);
 }
