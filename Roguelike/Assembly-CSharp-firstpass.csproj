@@ -1527,13 +1527,13 @@
       <Project>{9841DB70-F78C-75B4-6268-4F6433323AF0}</Project>
       <Name>UniRx</Name>
     </ProjectReference>
-    <ProjectReference Include="BetterStreamingAssets.csproj">
-      <Project>{672DA262-5740-C6C9-CC60-9470B848F840}</Project>
-      <Name>BetterStreamingAssets</Name>
-    </ProjectReference>
     <ProjectReference Include="VFolders.csproj">
       <Project>{4DED4787-944B-B101-7ECC-6D513C34BE3E}</Project>
       <Name>VFolders</Name>
+    </ProjectReference>
+    <ProjectReference Include="BetterStreamingAssets.csproj">
+      <Project>{672DA262-5740-C6C9-CC60-9470B848F840}</Project>
+      <Name>BetterStreamingAssets</Name>
     </ProjectReference>
     <ProjectReference Include="UniTask.Linq.csproj">
       <Project>{A075689A-7965-BB56-5987-625804F274DC}</Project>

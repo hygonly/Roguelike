@@ -2,12 +2,22 @@ using UnityEngine;
 
 public partial class Defines
 {
+    public enum StateType
+    {
+        None,
+        OnEnter,
+        OnUpdate,
+        OnExit,
+        OnFinish,
+    }
+
     public enum ObjectState
     {
         None,
         Idle,
         Move,
         Attack,
+        Skill,
         Hit,
         Dead,
     }
@@ -27,13 +37,5 @@ public partial class Defines
         Attack,
         Hit,
         Dead,
-    }
-
-    public enum StatType
-    {
-        None,
-        BaseAttack,
-        BaseDefense,
-        BaseHp,
     }
 }
