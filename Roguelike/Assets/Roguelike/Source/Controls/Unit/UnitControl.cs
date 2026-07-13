@@ -1,16 +1,10 @@
 using UnityEngine;
 
-public class UnitControl : MonoBehaviour
+public abstract class UnitControl : ObjectControl
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    protected UnitStateData mUnitStateData;
+    protected UnitStateMachine mStateMachine;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    protected abstract void InitStateMachine();
+
 }

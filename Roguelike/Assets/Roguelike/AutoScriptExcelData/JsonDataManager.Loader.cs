@@ -24,9 +24,23 @@ public partial class JsonDataManager
     {
         _loadCount = 0;
 		ClearUserSettingScript();
+		ClearUnitBaseStatInfoScript();
+		ClearWeaponInfoScript();
+		ClearWeaponStatInfoScript();
+		ClearWeaponSkillInfoScript();
+		ClearAccessorieInfoScript();
+		ClearAccessorieStatInfoScript();
+		ClearMonsterInfoScript();
 
         await UniTask.WhenAll(
-			LoadUserSettingScript()
+			LoadUserSettingScript(),
+			LoadUnitBaseStatInfoScript(),
+			LoadWeaponInfoScript(),
+			LoadWeaponStatInfoScript(),
+			LoadWeaponSkillInfoScript(),
+			LoadAccessorieInfoScript(),
+			LoadAccessorieStatInfoScript(),
+			LoadMonsterInfoScript()
         );
     }
 }
