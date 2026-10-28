@@ -14,25 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Default Local Group
   m_GUID: c9f5e76c2acea7a488f47a153d79c7f8
-  m_SerializeEntries:
-  - m_GUID: 6b981c7835dac6340935064eae7cf0d3
-    m_Address: Assets/Roguelike/Prefab/sprites
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - download
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bae193a381c5b624fb3a879a5311d81d
-    m_Address: Assets/Roguelike/Prefab/scripts_auto
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - download
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ffc2dfe52436fba4cb4602659f1bc3e3
-    m_Address: Assets/Roguelike/Prefab/scene
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - download
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: d375aaf0c22c84a44a72ef222b55ad0c, type: 2}
   m_SchemaSet:

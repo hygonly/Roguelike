@@ -14,13 +14,18 @@ public static partial class ExtendedHelper
         return _value / 10000d;
     }
 
-    public static int MillisPerSecond(this int second)
+    public static int MillisPerSecond(this int _second)
     {
-        return second * MS_PER_SECONDS;
+        return _second * MS_PER_SECONDS;
     }
 
-    public static bool IsObjectValid(this Component target)
+    public static bool IsValid(this Component _target)
     {
-        return target != null && target.gameObject != null;
+        return _target != null && _target.gameObject != null;
+    }
+
+    public static bool IsVaild(this GameObject _target)
+    {
+        return _target != null && _target.activeInHierarchy == true;
     }
 }
