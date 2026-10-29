@@ -56,6 +56,7 @@ public class StartScene : BaseScene
 
     public async void OnCompletedResourceDownload()
     {
+        Managers.Input.LoadInputDatas();
         await Managers.Data.LoadScript();
         await Managers.Scene.LoadSceneAsync(Defines.SceneType.GameScene);
     }

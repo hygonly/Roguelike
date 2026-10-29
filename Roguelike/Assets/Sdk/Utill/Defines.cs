@@ -51,4 +51,36 @@ public class Defines
         Attack,
         Defense,
     }
+
+    public enum CreatureState
+    {
+        Idle,
+        Move,
+        Skill,
+        Defense,
+        Hit,
+        Dead,
+    }
+
+    public enum WeaponType
+    {
+        None,
+        Sword,
+        Spear,
+        Bow,
+        Shield,
+    }
+
+    public enum InputType
+    {
+        None,
+        Move,
+        Jump,
+        Attack,
+        Defense,
+        WeaponSkill1,
+        WeaponSkill2,
+        Skill1,
+        Skill2,
+    }
 }

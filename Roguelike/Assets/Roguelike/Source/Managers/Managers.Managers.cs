@@ -12,6 +12,7 @@ public class Managers : HYG.Manager.Core.Managers<Managers>
     public static StringManager String => Instance.mString;
     public static SoundManager Sound => Instance.mSound;
     public static DeviceManager Device => Instance.mDevice;
+    public static InputManager Input => Instance.mInput;
 
     private ResourceManager mResource;
     private DataManager mData;
@@ -22,6 +23,7 @@ public class Managers : HYG.Manager.Core.Managers<Managers>
     private StringManager mString;
     private SoundManager mSound;
     private DeviceManager mDevice;
+    private InputManager mInput;
 
     public void InitManager()
     {
@@ -37,6 +39,7 @@ public class Managers : HYG.Manager.Core.Managers<Managers>
         mString = new StringManager();
         mSound = new SoundManager();
         mDevice = new DeviceManager();
+        mInput = new InputManager();
 
         mResource.RegisterMaster(this);
         mData.RegisterMaster(this);
@@ -47,6 +50,7 @@ public class Managers : HYG.Manager.Core.Managers<Managers>
         mString.RegisterMaster(this);
         mSound.RegisterMaster(this);
         mDevice.RegisterMaster(this);
+        mInput.RegisterMaster(this);
     }
 
     public override void Clear()
@@ -61,6 +65,8 @@ public class Managers : HYG.Manager.Core.Managers<Managers>
         mString.UnregisterMaster();
         mSound.UnregisterMaster();
         mDevice.UnregisterMaster();
+        mInput.UnregisterMaster();
+
         mInstance = null;
         Destroy(gameObject);
     }
