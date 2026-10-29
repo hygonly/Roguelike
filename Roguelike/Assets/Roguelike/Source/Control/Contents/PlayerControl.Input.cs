@@ -28,12 +28,22 @@ public partial class PlayerControl : BaseControl
 
     private void BindJumpInputEvent()
     {
-
+        Managers.Input.BindInputEvent(Defines.InputType.Jump, (_context) =>
+        {
+            if (_context.performed == true)
+                Jump();
+        }, gameObject);
     }
 
     private void BindAttackInputEvent()
     {
-
+        Managers.Input.BindInputEvent(Defines.InputType.Attack, (_context) =>
+        {
+            if (_context.performed == true)
+            {
+                Debug.Log("Attack");
+            }
+        }, gameObject);
     }
 
     private void BindSkillInputEvent()

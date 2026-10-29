@@ -6,23 +6,20 @@ using UniRx.Triggers;
 public partial class PlayerControl : BaseControl
 {
     [ReadOnly] private Vector2 mDirection;
-    [SerializeField] private Rigidbody2D rigid;
     [SerializeField] private float speed = 5f;
+    [SerializeField] private float jumpPower = 5f;
     [SerializeField] private Collider2D jumpCollider;
-    private bool isGround;
+    private Rigidbody2D mRigidbody;
+    private bool isJump;
 
     protected override void Init()
     {
         jumpCollider.OnTriggerEnter2DAsObservable().Subscribe(_other =>
         {
+            if (_other.CompareTag(Config.GROUND_TAG) == true)
+                isJump = false;
 
         }).AddTo(this);
-
-        jumpCollider.OnTriggerEnter2DAsObservable().Subscribe(_other =>
-        {
-
-        }).AddTo(this);
-
 
         ChangeState(Defines.CreatureState.Idle);
     }
@@ -53,6 +50,14 @@ public partial class PlayerControl : BaseControl
             return;
         }
 
-        mRigidbody.linearVelocityX = mDirection.x * mSpeed;
+        mRigidbody.linearVelocityX = mDirection.x * speed;
+    }
+
+    private void Jump()
+    {
+        if (isJump == true)
+            return;
+
+        mRigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
     }
 }

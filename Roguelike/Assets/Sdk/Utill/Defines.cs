@@ -83,4 +83,21 @@ public class Defines
         Skill1,
         Skill2,
     }
+
+    public enum SkillType
+    {
+        Active,
+        Passive,
+    }
+
+    public enum ActiveSkillType
+    {
+        Instance,
+        Casting,
+    }
+
+    public enum PassiveSkillType
+    {
+
+    }
 }

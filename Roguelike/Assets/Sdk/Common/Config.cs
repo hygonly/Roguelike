@@ -17,4 +17,7 @@ public class Config
     public const float GAME_TICK_PERIOD_SECONDS = 0.02F;
     public const float INCREAMENT_NATURE_ABILITY = 1.1F;
     public const float DECREAMENT_NATURE_ABILITY = 0.9F;
+
+    public const string MONSTER_TAG = "Monster";
+    public const string GROUND_TAG = "Ground";
 }
