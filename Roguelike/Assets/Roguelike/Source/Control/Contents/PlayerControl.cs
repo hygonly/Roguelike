@@ -7,12 +7,20 @@ public partial class PlayerControl : BaseControl
 {
     [ReadOnly] private Vector2 mDirection;
     [SerializeField] private float speed = 5f;
+    [SerializeField] private float decelerationTime = 0.03f;
     [SerializeField] private float jumpPower = 5f;
     [SerializeField] private Collider2D jumpCollider;
     private Rigidbody2D mRigidbody;
     private bool isJump;
 
     protected override void Init()
+    {
+        mRigidbody = GetComponent<Rigidbody2D>();
+
+        ChangeState(Defines.CreatureState.Idle);
+    }
+
+    protected override void OnChangeSubscribes()
     {
         jumpCollider.OnTriggerEnter2DAsObservable().Subscribe(_other =>
         {
@@ -21,11 +29,6 @@ public partial class PlayerControl : BaseControl
 
         }).AddTo(this);
 
-        ChangeState(Defines.CreatureState.Idle);
-    }
-
-    protected override void OnChangeSubscribes()
-    {
         BindInputEvents();
     }
 
@@ -46,6 +49,7 @@ public partial class PlayerControl : BaseControl
     {
         if (mDirection == Vector2.zero)
         {
+            mRigidbody.linearVelocityX = Mathf.MoveTowards(mRigidbody.linearVelocityX, 0f, (speed / decelerationTime) * Time.fixedDeltaTime);
             ChangeState(Defines.CreatureState.Idle);
             return;
         }
@@ -59,5 +63,6 @@ public partial class PlayerControl : BaseControl
             return;
 
         mRigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+        isJump = true;
     }
 }

@@ -37,7 +37,7 @@ public class ProjectSettingScriptableObject : ScriptableObject
 
     private static ProjectSettingScriptableObject mInstance;
 
-    public InputActionAsset InputAsset => mInputActionAsset;
+    public InputActionAsset InputAsset => _inputActionAsset;
 
-    [SerializeField] private InputActionAsset mInputActionAsset;
+    [SerializeField] private InputActionAsset _inputActionAsset;
 }

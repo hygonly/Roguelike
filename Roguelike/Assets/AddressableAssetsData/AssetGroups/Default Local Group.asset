@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Default Local Group
   m_GUID: c9f5e76c2acea7a488f47a153d79c7f8
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 876b05aecbc5ee64c92516e4f3dcaa15
+    m_Address: Assets/Roguelike/Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - download
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: d375aaf0c22c84a44a72ef222b55ad0c, type: 2}
   m_SchemaSet:

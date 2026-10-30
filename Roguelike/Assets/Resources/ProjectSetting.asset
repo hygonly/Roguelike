@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e4dff83948b784fbb445e5c7ce5da3, type: 3}
   m_Name: ProjectSetting
   m_EditorClassIdentifier: Assembly-CSharp::ProjectSettingScriptableObject
-  InputAsset: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  _inputActionAsset: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

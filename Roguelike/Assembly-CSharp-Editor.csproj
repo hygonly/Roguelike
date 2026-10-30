@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\SPUM\Sample\Script\Editor\PlayerManagerEditor.cs" />
+    <Compile Include="Assets\Roguelike\Source\Editor\MenuTools.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -1557,6 +1558,10 @@
     <ProjectReference Include="ZString.csproj">
       <Project>{921032F9-9BA9-DBF7-00AE-0E1AE4C1CAEA}</Project>
       <Name>ZString</Name>
+    </ProjectReference>
+    <ProjectReference Include="VFavorites.csproj">
+      <Project>{CC157980-C3E3-7652-8B3D-DF6DB56A79B3}</Project>
+      <Name>VFavorites</Name>
     </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.Modules.Unity.Addressables.csproj">
       <Project>{F1132E65-9702-B776-01F5-6B89702C13B4}</Project>
