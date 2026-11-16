@@ -47,9 +47,9 @@ public class Defines
     public enum StatType
     {
         None,
-        Hp,
-        Attack,
-        Defense,
+        BaseHp,
+        BaseAttack,
+        BaseDefense,
     }
 
     public enum CreatureState
@@ -84,6 +84,15 @@ public class Defines
         Skill2,
     }
 
+    public enum TransitionState
+    {
+        None,
+        OnEnter,
+        OnUpdate,
+        OnExit,
+        OnFinish,
+    }
+
     public enum SkillType
     {
         Active,
@@ -96,8 +105,20 @@ public class Defines
         Casting,
     }
 
-    public enum PassiveSkillType
+    public enum SkillEffectType
     {
+        None,
+        Damage,             //대미지
+        Heal,               //힐
+        DamageReduction,    //대미지 감소
+    }
 
+    public enum SkillConditionType
+    {
+        None,
+        HitsDealt,  //피격 횟수
+        HitsTaken,  //받은 피격 횟수
+        TakenDamage,    //받은 대미지
+        HpThreshold,    //특정 HP 미만
     }
 }

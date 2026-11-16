@@ -1,0 +1,9 @@
+[
+  {
+    "skillID": "101",
+    "skillType": "Instance",
+    "skillName": "테스트",
+    "skillDesc": "테스트",
+    "prefab": "test"
+  }
+]

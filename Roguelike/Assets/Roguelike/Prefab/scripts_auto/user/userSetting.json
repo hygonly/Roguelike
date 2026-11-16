@@ -1,6 +1,42 @@
 [
   {
-    "userSettingType": "0",
-    "value": "0"
+    "userSettingType": "1",
+    "value": "1"
+  },
+  {
+    "userSettingType": "2",
+    "value": "1"
+  },
+  {
+    "userSettingType": "3",
+    "value": "1"
+  },
+  {
+    "userSettingType": "4",
+    "value": "1"
+  },
+  {
+    "userSettingType": "5",
+    "value": "1"
+  },
+  {
+    "userSettingType": "6",
+    "value": "1"
+  },
+  {
+    "userSettingType": "7",
+    "value": "1"
+  },
+  {
+    "userSettingType": "8",
+    "value": "1"
+  },
+  {
+    "userSettingType": "9",
+    "value": "1"
+  },
+  {
+    "userSettingType": "10",
+    "value": "1"
   }
 ]

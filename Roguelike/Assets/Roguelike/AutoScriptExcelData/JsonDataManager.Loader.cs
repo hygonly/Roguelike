@@ -31,6 +31,9 @@ public partial class JsonDataManager
 		ClearAccessorieInfoScript();
 		ClearAccessorieStatInfoScript();
 		ClearMonsterInfoScript();
+		ClearActiveSkillInfoScript();
+		ClearActiveSkillEffectInfoScript();
+		ClearSkillConditionInfoScript();
 
         await UniTask.WhenAll(
 			LoadUserSettingScript(),
@@ -40,7 +43,10 @@ public partial class JsonDataManager
 			LoadWeaponSkillInfoScript(),
 			LoadAccessorieInfoScript(),
 			LoadAccessorieStatInfoScript(),
-			LoadMonsterInfoScript()
+			LoadMonsterInfoScript(),
+			LoadActiveSkillInfoScript(),
+			LoadActiveSkillEffectInfoScript(),
+			LoadSkillConditionInfoScript()
         );
     }
 }

@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class DataManager : HYG.Manager.Data.DataManager
 {
-    protected override async UniTask ConvertListToDictionary()
+    protected override UniTask ConvertListToDictionary()
     {
-        await UniTask.CompletedTask;
+        UniTask.WhenAll(
+            JsonData.LoadSkill()
+            );
+
+        return UniTask.CompletedTask;
     }
 }
