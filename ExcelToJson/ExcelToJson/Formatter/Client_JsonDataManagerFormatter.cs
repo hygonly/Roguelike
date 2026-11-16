@@ -142,7 +142,7 @@ public partial class JsonDataManager
                 foreach (SourceFieldInfo fieldInfo in fieldInfos)
                     field += "\t" + string.Format(_jsonFormat.FieldFormat, fieldInfo.type, fieldInfo.name);
 
-                string directoryPath = string.Concat(Managers.InI.GetValue(Defines.InIKeyType.ClientSourcePath), "/", directory);
+                string directoryPath = Managers.InI.GetValue(Defines.InIKeyType.ClientSourcePath);
                 string fullPath = string.Concat(directoryPath, "/", StringHelper.GetScriptName(file));
                 if (Directory.Exists(directoryPath) == false)
                     Directory.CreateDirectory(directoryPath);
