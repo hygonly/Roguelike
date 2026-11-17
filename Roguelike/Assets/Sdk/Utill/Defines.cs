@@ -108,17 +108,32 @@ public class Defines
     public enum SkillEffectType
     {
         None,
-        Damage,             //대미지
-        Heal,               //힐
-        DamageReduction,    //대미지 감소
+        Hit,             //피격
+        Heal,            //힐
+        DamageReduction, //대미지 감소
     }
 
     public enum SkillConditionType
     {
         None,
-        HitsDealt,  //피격 횟수
-        HitsTaken,  //받은 피격 횟수
-        TakenDamage,    //받은 대미지
-        HpThreshold,    //특정 HP 미만
+        Hit,
+        TakenDamage,
+    }
+
+    public enum EffectActionState
+    {
+        None,
+        Enter,
+        Update,
+        Exit,
+        Finish,
+    }
+
+    public enum CooldownPolicy
+    {
+        None,       //없음
+        Instant,    //즉발
+        Time,       //쿨타임 대기
+        Preload,    //에너지 채우기
     }
 }
