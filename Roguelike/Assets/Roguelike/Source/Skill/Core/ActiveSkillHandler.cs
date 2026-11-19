@@ -2,18 +2,14 @@ using UnityEngine;
 
 public class ActiveSkillHandler : SkillHandler
 {
-    public override void Apply()
+    protected override bool TryApply()
     {
         throw new System.NotImplementedException();
     }
 
-    public override void Execute()
+    protected override void Revert()
     {
-        throw new System.NotImplementedException();
+
     }
 
-    public override void Revert()
-    {
-        throw new System.NotImplementedException();
-    }
 }

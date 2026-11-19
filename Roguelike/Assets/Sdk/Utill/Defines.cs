@@ -101,7 +101,7 @@ public class Defines
 
     public enum ActiveSkillType
     {
-        Instance,
+        Instant,
         Casting,
     }
 
@@ -135,5 +135,10 @@ public class Defines
         Instant,    //즉발
         Time,       //쿨타임 대기
         Preload,    //에너지 채우기
+    }
+
+    public enum EffectHitType
+    {
+
     }
 }
