@@ -139,6 +139,8 @@ public class Defines
 
     public enum EffectHitType
     {
-
+        None,
+        Damage,
+        FixDamage,
     }
 }
